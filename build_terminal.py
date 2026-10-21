@@ -1,6 +1,6 @@
 from pathlib import Path
 from html import escape
-p=Path(r'C:\Users\rovol\Rowolfs-profile')
+p = Path(__file__).resolve().parent
 (p/'assets').mkdir(exist_ok=True)
 rows=[
 (0.4,'$ ssh rowolfs@github','#dce5ef',True),
