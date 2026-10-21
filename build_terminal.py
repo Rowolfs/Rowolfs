@@ -42,7 +42,6 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="550" viewBox
 <text x="440" y="32" text-anchor="middle" fill="#9baabd" style="font-size:12px">rowolfs@github: ~</text>
 {''.join(body)}
 <g class="cursor-wrap"><rect class="cursor" x="67" y="474" width="9" height="18" rx="1" fill="#73d9a2"/></g>
-<text x="30" y="527" fill="#566679" style="font-size:10px;letter-spacing:1.5px">PUBLIC SESSION / ROWOLFS</text>
 <circle cx="784" cy="523" r="3" fill="#73d9a2"/><text x="795" y="527" fill="#73d9a2" style="font-size:10px">CONNECTED</text>
 </svg>'''
 (p/'assets'/'terminal.svg').write_text(svg,encoding='utf-8')
