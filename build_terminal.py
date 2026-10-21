@@ -12,8 +12,8 @@ rows=[
 (6.8,'~ $ cat stack.txt','#dce5ef',True),
 (8.0,'Python  /  Go  /  Docker  /  Linux','#73d9a2',False),
 (9.4,'~ $ ls projects/','#dce5ef',True),
-(10.6,'AITalkingAgent/     SchoolEditor/     task_manager_back/','#8cbaff',False),
-(10.9,'YYANSTBOT/          QtExcel/          LazyPuzzle/','#8cbaff',False),
+(10.6,'KolosLinux/  AITalkingAgent/  backyard-client-config-proxy-golang/','#8cbaff',False),
+(10.9,'SchoolAdmin/  Task_manager/  shop-project/','#8cbaff',False),
 (12.4,'~ $ help','#dce5ef',True),
 (13.2,'whoami          a little about me','#8796a8',False),
 (13.4,'cat stack.txt   tools I work with','#8796a8',False),
@@ -46,9 +46,21 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="880" height="550" viewBox
 </svg>'''
 (p/'assets'/'terminal.svg').write_text(svg,encoding='utf-8')
 (p/'README.md').write_text('![Animated terminal introducing Roman Volkov (@Rowolfs), his Python, Go, Docker and Linux stack, and public projects.](assets/terminal.svg)\n',encoding='utf-8')
-links = ['AITalkingAgent', 'SchoolEditor', 'task_manager_back', 'YYANSTBOT', 'QtExcel', 'LazyPuzzle']
+projects = [
+    ("KolosLinux", "C++ · Vulkan · Linux", "Prototype", "Linux-side AHardwareBuffer/dma-buf import and buffer lifecycle experiments on ARM64 Debian with Qualcomm Turnip."),
+    ("AITalkingAgent", "Python · Whisper · Ollama · Piper", "Prototype", "Telegram voice conversations powered by local speech recognition, language-model inference and speech synthesis."),
+    ("backyard-client-config-proxy-golang", "Go · HTTP · Docker", "Prototype", "Reverse proxy that transforms Remnawave subscription responses using user and host metadata."),
+    ("SchoolAdmin", "TypeScript · Next.js · Prisma · PostgreSQL", "Coursework", "School administration application with separate frontend and backend services, data modeling and database migrations."),
+    ("Task_manager", "Flutter · Dart", "Study project", "Construction project and defect tracking with role-specific screens and local persistence."),
+    ("shop-project", "Node.js · WebSocket · Nginx · Docker", "Learning demo", "Storefront and admin interfaces, a product API and live chat, packaged as separate services."),
+]
 with (p/'README.md').open('a', encoding='utf-8') as f:
-    f.write('\n' + ' · '.join('[`' + name + '`](https://github.com/Rowolfs/' + name + ')' for name in links) + '\n')
+    f.write("\n## Selected projects\n\n")
+    f.write("Systems programming, local AI, backend services and application development.\n\n")
+    f.write("| Project | What it explores | Stack / status |\n| --- | --- | --- |\n")
+    for name, stack, status, description in projects:
+        f.write(f"| [{name}](https://github.com/Rowolfs/{name}) | {description} | {stack}<br>**{status}** |\n")
+    f.write("\n[Browse all repositories →](https://github.com/Rowolfs?tab=repositories)\n")
 import xml.etree.ElementTree as ET
 ET.fromstring(svg)
 print('SVG XML valid; generated',len(svg),'bytes')
